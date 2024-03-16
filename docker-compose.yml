@@ -6,10 +6,11 @@ services:
     build:
       context: ./docker
       dockerfile: apache.dockerfile
+    image: imbityrk/learndocker2:latest
     ports:
       - 8000:80
-    volumes:
-      - ./html:/usr/local/apache2/htdocs
+    #volumes:
+    # - ./html:/usr/local/apache2/htdocs
 
   # db:
   #   image: mariadb
