@@ -1,10 +1,12 @@
 version: '3.1'
 
 services:
-  app:
+  drupal:
     build:
       context: ./docker
-      dockerfile: app.dockerfile
+      dockerfile: drupal.dockerfile
+    ports:
+       - 8000:80
       
   # apache:
   #   # image: httpd:2.4
@@ -17,21 +19,21 @@ services:
     #volumes:
     # - ./html:/usr/local/apache2/htdocs
 
-#   db:
-#     image: mariadb
-#     restart: always
-#     environment:
-#       MARIADB_ROOT_PASSWORD: example
-#     ports:
-#       - 3306:3306
-#     volumes:
-#       -dbdata:/var/lib/mysql
+  db:
+    image: mariadb
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: example
+    ports:
+      - 3306:3306
+    volumes:
+     - dbdata:/var/lib/mysql
 
-#   adminer:
-#     image: adminer
-#     restart: always
-#     ports:
-#       - 8080:8080
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
 
-# volumes:
-#   dbdata:
+volumes:
+  dbdata:
