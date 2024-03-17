@@ -1,27 +1,37 @@
 version: '3.1'
 
 services:
-  apache:
-    # image: httpd:2.4
+  app:
     build:
       context: ./docker
-      dockerfile: apache.dockerfile
-    image: imbityrk/learndocker2:latest
-    ports:
-      - 8000:80
+      dockerfile: app.dockerfile
+      
+  # apache:
+  #   # image: httpd:2.4
+  #   build:
+  #     context: ./docker
+  #     dockerfile: apache.dockerfile
+  #   image: imbityrk/learndocker2:latest
+  #   ports:
+  #     - 8000:80
     #volumes:
     # - ./html:/usr/local/apache2/htdocs
 
-  # db:
-  #   image: mariadb
-  #   restart: always
-  #   environment:
-  #     MARIADB_ROOT_PASSWORD: example
-  #   ports:
-  #     - 3306:3306
+#   db:
+#     image: mariadb
+#     restart: always
+#     environment:
+#       MARIADB_ROOT_PASSWORD: example
+#     ports:
+#       - 3306:3306
+#     volumes:
+#       -dbdata:/var/lib/mysql
 
-  # adminer:
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
+#   adminer:
+#     image: adminer
+#     restart: always
+#     ports:
+#       - 8080:8080
+
+# volumes:
+#   dbdata:
